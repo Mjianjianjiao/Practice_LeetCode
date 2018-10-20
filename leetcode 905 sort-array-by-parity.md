@@ -1,0 +1,42 @@
+leetcode 905 sort-array-by-parity
+
+按奇偶排序数组
+
+给定一个非负整数数组 `A`，返回一个由 `A` 的所有偶数元素组成的数组，后面跟 `A` 的所有奇数元素。
+
+你可以返回满足此条件的任何数组作为答案。
+
+ 
+
+**示例：**
+
+```
+输入：[3,1,2,4]
+输出：[2,4,3,1]
+输出 [4,2,3,1]，[2,4,1,3] 和 [4,2,1,3] 也会被接受。
+```
+
+```
+int* sortArrayByParity(int* A, int ASize, int* returnSize) {
+    int i=0;
+    int j=ASize-1;
+    int tmp=0;
+  
+    while(i<j)
+    {
+        if(A[i]%2==0)
+            i++;
+        else 
+        {
+            tmp=A[i];
+            A[i]=A[j];
+            A[j]=tmp;
+            j--;
+        }
+    }
+    
+    *returnSize=ASize;
+    return A;
+}
+```
+
